@@ -12,13 +12,13 @@ Este repositorio recopila cursos autodidactas, **pedagógicos y diseñados para 
 ## Cursos Disponibles para Compra
 
 ### 🔍 Fundamentos QA  
-- [SSTQB Foundation Level 4](./courses/qa-fundaments/sstqb/readme.md)
+- [SSTQB Foundation Level 4](./courses/qa-fundaments/sstqb/readme.md) 📖 🎧
 
 ### 🛠️ Gestión y Herramientas  
 ...
 
 ### 🧪 Automatización de Pruebas  
-- [Postman y Newman: Pruebas API](./courses/automation/postman/readme.md)  
+- [Postman y Newman: Pruebas API](./courses/automation/postman/readme.md) 📖  
 
 ### ⚙️ Integración y Entrega Continua  
 ...
@@ -28,13 +28,13 @@ Este repositorio recopila cursos autodidactas, **pedagógicos y diseñados para 
 
 ### ⚡ Desarrollo  
 - **🪪 FrontEnd**
-  - [HTML5 y CSS3](./courses/dev-and-ia/html5/readme.md)
+  - [HTML5 y CSS3](./courses/dev-and-ia/html5/readme.md) 📖
 
 - **🧳 BackEnd**
-  - [FastAPI](./courses/dev-and-ia/fastapi/readme.md)
+  - [FastAPI](./courses/dev-and-ia/fastapi/readme.md) 📖
     
 - **🧠 IA**
-  - [n8n: automatización de flujos](./courses/dev-and-ia/n8n/readme.md)  
+  - [n8n: automatización de flujos](./courses/dev-and-ia/n8n/readme.md) 📖 
 
 ### 🔐 Seguridad y Buenas Prácticas  
 - ...
@@ -48,18 +48,18 @@ Este repositorio recopila cursos autodidactas, **pedagógicos y diseñados para 
 
 Cursos gratuitos en desarrollo, marcados con 🚧 hasta su finalización:
 
-- 🚧 [English for Tech: A2 to C1](./courses/resources/english/readme.md)  
-- 🚧 [Trinity: "Operator, I need a pilot program for a B-212 helicopter"](./courses/resources/helicopter/readme.md)  
+- 🚧 [English for Tech: A2 to C1](./courses/resources/english/readme.md) 📖 🎧 
+- 🚧 [Trinity: "Operator, I need a pilot program for a B-212 helicopter"](./courses/resources/helicopter/readme.md) 📖 
 
 ---
 
 ## 🚧 Cursos en Desarrollo
 
 ### 🛠️ Gestión y Herramientas  
-- [Docker para testers](./courses/containers/docker/readme.md)  
-- [Git](./courses/tools/git/readme.md)  
-- [Jira](./courses/tools/jira/readme.md)  
-- [Kubernetes](./courses/containers/kubernetes/readme.md)
+- [Docker para testers](./courses/containers/docker/readme.md) 📖 
+- [Git](./courses/tools/git/readme.md) 📖  
+- [Jira](./courses/tools/jira/readme.md) 📖 
+- [Kubernetes](./courses/containers/kubernetes/readme.md) 📖
 
 ### 🧪 Automatización de Pruebas  
 - [Appium con C#](./courses/automation/appium/readme.md)  
