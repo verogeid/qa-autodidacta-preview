@@ -2,15 +2,11 @@
 
 🚧 Actualmente estoy rediseñando los cursos, por lo que no están disponibles temporalmente. Los primeros estarán publicados en pocas semanas. 🚧 Todos los cursos ya están redactados; solo falta darles el formato final y publicarlos. 🚧
 
-> Tras revisar la oferta actual de cursos en IT, decidí crear una colección propia: contenidos pedagógicos desde cero, pensados para quienes no tienen experiencia previa. Con explicaciones claras, ritmo progresivo y símiles del día a día, cualquiera puede llegar a un nivel experto.
->
-> Aunque son de pago, todos incluyen el índice y el primer tema completo, para que puedas evaluar el estilo y profundidad del contenido antes de adquirirlos.
-
 <h1 align="center">📚 Colección de Cursos Autodidactas</h1>
 
-Este repositorio recopila cursos autodidactas, **pedagógicos y diseñados para personas sin conocimientos previos en IT**. 
-> Permiten aprender hasta nivel experto usando símiles cotidianos que facilitan la comprensión.
->
+> Tras revisar la oferta actual de cursos IT, decidí crear esta colección: *formaciones autodidactas desde cero hasta nivel experto*, con explicaciones claras, ritmo progresivo y símiles cotidianos.  
+> Están pensados para quienes no tienen experiencia previa, pero quieren aprender con estructura, sin perderse y entendiendo lo que hacen.
+> Aunque son de pago, **todos incluyen el índice y el primer tema completo**.  
 > Algunos cursos incluyen audiolibro 🎧 compuesto por **texto plano para cada tema + soporte de lectura automática**.
 
 ---
