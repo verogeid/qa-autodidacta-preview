@@ -1,5 +1,7 @@
 ![sstqb-logo] ![jira-logo] ![playwright-logo] ![katalon-logo] ![jenkins-logo] ![github-actions] ![docker-logo] ![kubernetes-logo] ![JMeter-logo] ![k6-logo] ![lighthouse-logo] ![vscode-logo] ![typescript-logo] ![python-logo] ![n8n-logo] ![html5-logo] ![css3-logo] ![react-logo] ![csharp-logo]
 
+🚧 Actualmente estoy rediseñando los cursos, así que no estarán disponibles por el momento. Espero poder exponer los primeros en pocas semanas. 🚧 La lista completa que figura más adelante está ya entera redactada. Solo falta darle el formato adecuado y publicarla. 🚧
+
 <h1 align="center">📚 Colección de Cursos Autodidactas</h1>
 
 Este repositorio recopila cursos autodidactas, **pedagógicos y diseñados para personas sin conocimientos previos en IT**. 
