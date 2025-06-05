@@ -1,6 +1,10 @@
 ![sstqb-logo] ![jira-logo] ![playwright-logo] ![katalon-logo] ![jenkins-logo] ![github-actions] ![docker-logo] ![kubernetes-logo] ![JMeter-logo] ![k6-logo] ![lighthouse-logo] ![vscode-logo] ![typescript-logo] ![python-logo] ![n8n-logo] ![html5-logo] ![css3-logo] ![react-logo] ![csharp-logo]
 
-🚧 Actualmente estoy rediseñando los cursos, así que no estarán disponibles por el momento. Espero poder exponer los primeros en pocas semanas. 🚧 La lista completa que figura más adelante está ya entera redactada. Solo falta darle el formato adecuado y publicarla. 🚧
+🚧 Actualmente estoy rediseñando los cursos, por lo que no están disponibles temporalmente. Los primeros estarán publicados en pocas semanas. 🚧 Todos los cursos ya están redactados; solo falta darles el formato final y publicarlos. 🚧
+
+> Tras revisar la oferta actual de cursos en IT, decidí crear una colección propia: contenidos pedagógicos desde cero, pensados para quienes no tienen experiencia previa. Con explicaciones claras, ritmo progresivo y símiles del día a día, cualquiera puede llegar a un nivel experto.
+>
+> Aunque son de pago, todos incluyen el índice y el primer tema completo, para que puedas evaluar el estilo y profundidad del contenido antes de adquirirlos.
 
 <h1 align="center">📚 Colección de Cursos Autodidactas</h1>
 
