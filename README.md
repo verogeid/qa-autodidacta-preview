@@ -17,7 +17,7 @@ Este repositorio recopila cursos autodidactas, **pedagógicos y diseñados para 
 
 ## Índice
 
-|.              |.              |.              |
+|-              |-              |-              |
 |---------------|---------------|---------------|
 | 🧪 [QA](#qa)         | ⚡ [Desarrollo](#desarrollo)  | 📋 Documentación   |
 | ⚙️ Integración y Entrega Continua  | 🛠️ Gestión y Herramientas  | 🔐 Seguridad y Buenas Prácticas  |
