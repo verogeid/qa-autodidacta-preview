@@ -13,17 +13,21 @@ Este repositorio recopila cursos autodidactas, **pedagógicos y diseñados para 
 
 ---
 
+🔐 [Licencia y Derechos](#licencia)
+
+---
+
 ## Índice
 
-- 🧪 [QA](#qa)
-  - 🔍 [Fundamentos QA](#qa-fundaments)
-  - 🧪 [Automatización de Pruebas](#qa-automation)
-- ⚡ [Desarrollo](#desarrollo)
-  - 🪪 [Frontend](#dev-frontend)
-  - 🧳 [Backend](#dev-frontend)
-  - 🧠 [IA](#dev-frontend)
-- 🎁 [Bonus Track (Gratuito)](#bonustrack)
-- 🔐 [Licencia y Derechos](#licencia)
+| 🧪 [QA](#qa)                         | ⚡ [Desarrollo](#desarrollo)             |
+|-------------------------------------|------------------------------------------|
+| 🔍 [Fundamentos QA](#qa-fundaments) | 🪪 [Frontend](#dev-frontend)             |
+| 🧪 [Automatización de Pruebas](#qa-automation) | 🧳 [Backend](#dev-backend)        |
+|                                     | 🧠 [IA](#dev-ia)                         |
+
+---
+
+🎁 [Bonus Track (Gratuito)](#bonustrack)
 
 <a id="qa">
 
