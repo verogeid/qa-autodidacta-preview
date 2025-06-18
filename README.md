@@ -36,40 +36,42 @@ Este repositorio recopila cursos autodidactas, **pedagógicos y diseñados para 
 
 <a id="qa-fundaments">
 
-## 🔍 Fundamentos QA
+### 🔍 Fundamentos QA
 
 - 🚧 [SSTQB Foundation Level 4](./courses/qa-fundaments/sstqb/readme.md) 📖🎧
 
 <a id="qa-automation">
 
-## ⛓️ Automatización de Pruebas
+### ⛓️ Automatización de Pruebas
 
 - 🚧 [Postman y Newman: Pruebas API](./courses/automation/postman/readme.md) 📖
 
 <a id="desarrollo">
 
+---
+
 ## ⚡ Desarrollo
 
 <a id="dev-frontend">
 
-- **🪪 FrontEnd**
-  - 🚧 [HTML5 y CSS3](./courses/dev-and-ia/html5/readme.md) 📖
+### 🪪 FrontEnd
+ - 🚧 [HTML5 y CSS3](./courses/dev-and-ia/html5/readme.md) 📖
 
 <a id="dev-backend">
 
-- **🧳 BackEnd**
+### 🧳 BackEnd
   - 🚧 [FastAPI](./courses/dev-and-ia/fastapi/readme.md) 📖
 
 <a id="dev-ia">
 
-- **🧠 IA**
-  - 🚧 [n8n: automatización de flujos](./courses/dev-and-ia/n8n/readme.md) 📖
+### 🧠 IA
+- 🚧 [n8n: automatización de flujos](./courses/dev-and-ia/n8n/readme.md) 📖
 
 ---
 
 <a id="bonustrack">
 
-## 🎁 Bonus Track (Gratuito)  
+### 🎁 Bonus Track (Gratuito)  
 
 - 🚧 [Trinity: "Operator, I need a pilot program for a B-212 helicopter"](./courses/resources/helicopter/readme.md) 📖
 
