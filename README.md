@@ -17,11 +17,11 @@ Este repositorio recopila cursos autodidactas, **pedagógicos y diseñados para 
 
 | 🧪 [QA](#qa)                                   | ⚡ [Desarrollo](#desarrollo)             | 🛠️ Gestión y Herramientas             | 📋 Documentación             |
 |-----------------------------------------------|------------------------------------------|------------------------------------------|-----------------------------------------------|
-| 🔍 [Fundamentos QA](#qa-fundaments)           | 🪪 [Frontend](#dev-frontend)             |                                               |                                               |
-| 🧪 [Automatización de Pruebas](#qa-automation) | 🧳 [Backend](#dev-backend)              |                                               |                                               | 📈 Performance y Carga                      | 🧠 [IA](#dev-ia)                         |                                               |                                               |
-| ⚙️ Integración y Entrega Continua              |                                                  |                                               |                                               |
-| ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦                            | ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦                      | ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦                      |✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦                      |
-| 🔐 Seguridad y Buenas Prácticas      | 🎁 [Bonus Track (Gratuito)](#bonustrack)      | 🔐 [Licencia y Derechos](#licencia)                       |                                               |
+| 🔍 [Fundamentos QA](#qa-fundaments)           | 🪪 [Frontend](#dev-frontend)             | —                                         | —                                         |
+| 🧪 [Automatización de Pruebas](#qa-automation) | 🧳 [Backend](#dev-backend)              | —                                         | —                                         |
+| 📈 Performance y Carga                        | 🧠 [IA](#dev-ia)                         | —                                         | —                                         |
+| ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦                            | ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦                      | ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦                      | ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦                      |
+| ⚙️ Integración y Entrega Continua            | 🔐 Seguridad y Buenas Prácticas      | 🎁 [Bonus Track (Gratuito)](#bonustrack)      | 🔐 [Licencia y Derechos](#licencia)                       |
 
 
 ---
