@@ -13,6 +13,8 @@ Este repositorio recopila cursos autodidactas, **pedagógicos y diseñados para 
 
 ---
 
+<a id="Index">
+
 ## Índice
 
 |.              |.              |.              |
@@ -24,6 +26,13 @@ Este repositorio recopila cursos autodidactas, **pedagógicos y diseñados para 
 ---
 
 <a id="qa">
+
+## 🧪 QA 
+
+|.              |.              |.              |
+|---------------|---------------|---------------|
+| 🔍 [Fundamentos QA](#qa-fundaments)         | ⛓️ [Automatización de Pruebas](#qa-automation)  | 📈 Performance y Carga  |
+| -              | -              | [^ Arriba](#index)  |
 
 <a id="qa-fundaments">
 
