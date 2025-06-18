@@ -19,11 +19,11 @@ Este repositorio recopila cursos autodidactas, **pedagógicos y diseñados para 
 
 ## Índice
 
-| 🧪 [QA](#qa)                         | ⚡ [Desarrollo](#desarrollo)             |
-|-------------------------------------|------------------------------------------|
-| 🔍 [Fundamentos QA](#qa-fundaments) | 🪪 [Frontend](#dev-frontend)             |
-| 🧪 [Automatización de Pruebas](#qa-automation) | 🧳 [Backend](#dev-backend)        |
-|                                     | 🧠 [IA](#dev-ia)                         |
+| 🧪 [QA](#qa)                                   | ⚡ [Desarrollo](#desarrollo)                        |
+|-----------------------------------------------|----------------------------------------------------|
+| 🔍 [Fundamentos QA](#qa-fundaments)           | 🪪 [Frontend](#dev-frontend)                        |
+| 🧪 [Automatización de Pruebas](#qa-automation) | 🧳 [Backend](#dev-backend)                          |
+|                                                | 🧠 [IA](#dev-ia)                                    |
 
 ---
 
