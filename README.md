@@ -16,12 +16,8 @@ Este repositorio recopila cursos autodidactas, **pedagógicos y diseñados para 
 ## Índice
 
 | 🧪 QA         | ⚡ Desarrollo  | 📋 Documentación   |
-|---------------|---------------|---------------|
-| 🔍 [Fundamentos QA](#qa-fundaments)  | 🪪 [Frontend](#dev-fronten)  | -       |
-⛓️ [Automatización de Pruebas](#qa-automation)  | 🧳 [Backend](#dev-backend)  | -          |
-| 📈 Performance y Carga  | 🧠 [IA](#dev-ia)  | -  | 
 | ⚙️ Integración y Entrega Continua  | 🛠️ Gestión y Herramientas  | 🔐 Seguridad y Buenas Prácticas  |
-| 🔐 [Licencia y Derechos](#licencia)  |   |  |  
+| 🔐 [Licencia y Derechos](#licencia)  |   |        |  
 
 ---
 
