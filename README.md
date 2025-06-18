@@ -20,10 +20,10 @@ Este repositorio recopila cursos autodidactas, **pedagógicos y diseñados para 
 | 🔍 [Fundamentos QA](#qa-fundaments)           | 🪪 [Frontend](#dev-frontend)             |
 | 🧪 [Automatización de Pruebas](#qa-automation) | 🧳 [Backend](#dev-backend)              |
 |                                               | 🧠 [IA](#dev-ia)              |
-
-| **🔐 [Licencia y Derechos](#licencia)** |                                           |
-|-----------------------------------------------|------------------------------------------|
 |                                               | ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ |
+
+| 🎁 [Bonus Track (Gratuito)](#bonustrack)                | 🔐 [Licencia y Derechos](#licencia)                       |
+|----------------------------------------------------------|-----------------------------------------------------------|
 
 ---
 
