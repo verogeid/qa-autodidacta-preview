@@ -188,4 +188,3 @@ Este repositorio está registrado en Safe Creative y licenciado bajo:
 [vscode-logo]: https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white  
 [react-logo]: https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black  
 [n8n-logo]: https://img.shields.io/badge/n8n-EF6533?style=for-the-badge&logo=n8n&logoColor=white  
-
