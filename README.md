@@ -29,7 +29,7 @@ Este repositorio recopila cursos autodidactas, **pedagógicos y diseñados para 
 
 ## 🧪 QA
 
-|.              |.              |.              |
+| Cursos ofrecidos en colaboracion con  | <a href="http://www.testeandoya.com" style="color:#FF9900;">TesteandoYa</a>              |.              |
 |---------------|---------------|---------------|
 | 🔍 [Fundamentos QA](#qa-fundaments)         | ⛓️ [Automatización de Pruebas](#qa-automation)  | 📈 Performance y Carga  |
 | -              | -              | [^ Arriba](#index)  |
