@@ -13,7 +13,7 @@ Este repositorio recopila cursos autodidactas, **pedagógicos y diseñados para 
 
 ---
 
-<a id="Index">
+<a id="index">
 
 ## Índice
 
@@ -27,7 +27,7 @@ Este repositorio recopila cursos autodidactas, **pedagógicos y diseñados para 
 
 <a id="qa">
 
-## 🧪 QA 
+## 🧪 QA
 
 |.              |.              |.              |
 |---------------|---------------|---------------|
@@ -60,16 +60,19 @@ Este repositorio recopila cursos autodidactas, **pedagógicos y diseñados para 
 <a id="dev-frontend">
 
 ### 🪪 FrontEnd
- - 🚧 [HTML5 y CSS3](./courses/dev-and-ia/html5/readme.md) 📖
+
+- 🚧 [HTML5 y CSS3](./courses/dev-and-ia/html5/readme.md) 📖
 
 <a id="dev-backend">
 
 ### 🧳 BackEnd
-  - 🚧 [FastAPI](./courses/dev-and-ia/fastapi/readme.md) 📖
+
+- 🚧 [FastAPI](./courses/dev-and-ia/fastapi/readme.md) 📖
 
 <a id="dev-ia">
 
 ### 🧠 IA
+
 - 🚧 [n8n: automatización de flujos](./courses/dev-and-ia/n8n/readme.md) 📖
 
 ---
