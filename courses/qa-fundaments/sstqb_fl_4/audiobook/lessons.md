@@ -1,0 +1,13 @@
+01-introduccion-al-testing.md
+02-psicologia-del-testing-etica-profesional-y-habilidades-clave.md
+03-ciclo-de-vida-del-software-niveles-y-tipos-de-pruebas.md
+04-pruebas-estaticas-revisiones-walkthroughs-y-analisis-estatico.md
+05-tecnicas-de-diseno-caja-negra-caja-blanca-y-basadas-en-experiencia.md
+06-gestion-de-pruebas-planificacion-estimacion-y-trazabilidad.md
+07-seguimiento-del-proceso-metricas-cobertura-y-control-de-calidad.md
+08-gestion-de-defectos-riesgos-y-mejora-continua.md
+09-herramientas-de-testing-seleccion-integracion-y-automatizacion.md
+10-pruebas-no-funcionales-rendimiento-usabilidad-seguridad-y-mas.md
+11-testing-en-devops-ci-cd-pipelines-y-automatizacion-practica.md
+12-preparacion-al-examen.md
+13-herramientas-avanzadas-e-integracion-en-testing.md
