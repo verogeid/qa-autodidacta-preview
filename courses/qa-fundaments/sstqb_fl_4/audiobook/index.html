@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Audiolibro</title>
+  <link rel="stylesheet" href="audiobook/speech.css" />
+</head>
+<body>
+  <header>
+    <h1>Audiobook</h1>
+    <div class="controls">
+      <div class="control-group">
+        <label for="selector">Tema:</label>
+        <select id="selector"></select>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div id="text"></div>
+    <input type="file" id="speechsFileInput" accept=".md" style="display: none;" />
+  </main>
+  <footer></footer> <!-- Aquí se cargarán los botones dinámicos -->
+
+  <script type="module">
+    const ts = Date.now();
+
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = `./audiobook/speech.js`;
+    document.body.appendChild(script);
+
+    // Si estamos en file://, simula cargar speechs.md automáticamente
+    if (location.protocol === 'file:') {
+      const input = document.getElementById('speechsFileInput');
+      const fakeEvent = new Event('change');
+
+      // Autocargar speechs.md (debe estar junto a index.html)
+      fetch('./audiobook/speechs.md')
+        .then(r => r.text())
+        .then(content => {
+          const blob = new Blob([content], { type: 'text/markdown' });
+          const file = new File([blob], 'speechs.md', { type: 'text/markdown' });
+
+          const dataTransfer = new DataTransfer();
+          dataTransfer.items.add(file);
+          input.files = dataTransfer.files;
+
+          input.dispatchEvent(fakeEvent);
+        });
+    }
+  </script>
+</body>
+</html>
