@@ -38,7 +38,7 @@ Este repositorio recopila cursos autodidactas, **pedagógicos y diseñados para 
 
 ### 🔍 Fundamentos QA
 
-- 🚧 [SSTQB Foundation Level 4](./courses/qa-fundaments/sstqb/readme.md) 📖🎧
+- 🚧 [SSTQB Foundation Level 4](./courses/qa-fundaments/sstqb_fl_4/readme.md) 📖🎧
 
 <a id="qa-automation">
 
