@@ -17,7 +17,7 @@ El enfoque es pedagógico, evolutivo y orientado a personas que deseen aprender 
 | Tema   | Contenido                                                            |
 |--------|----------------------------------------------------------------------|
 | 1      | [Introducción al testing: principios, proceso y roles del tester](./Tema01/readme.md)     |
-| 2      | [Psicología del testing, ética profesional y habilidades clave](./Tema02/readme.md)       |
+| 2      | [Psicología del testing, ética profesional y habilidades clave](./Tema02/readme.md) [🛒](https://hotmart.com/es)       |
 | 3      | [Ciclo de vida del software, niveles y tipos de pruebas](./Tema03/readme.md)              |
 | 4      | [Pruebas estáticas: revisiones, walkthroughs y análisis estático](./Tema04/readme.md)     |
 | 5      | [Técnicas de diseño: caja negra, caja blanca y basadas en experiencia](./Tema05/readme.md)|

@@ -30,6 +30,10 @@
     }
     a { color: #007acc; text-decoration: none; }
     a:hover { text-decoration: underline; }
+    a[target="_blank"] {
+      font-style: italic;
+      color: #0066cc;
+    }
   </style>
 </head>
 <body>
@@ -66,23 +70,69 @@
 
           if (href.endsWith(".md")) {
             const resolved = resolvePath(basePath, href);
+            const dirPath = resolved.substring(0, resolved.lastIndexOf("/") + 1);
+            const filename = resolved.split("/").pop().toLowerCase();
+
+            // Asignar funcionalidad base
             link.setAttribute("href", resolved);
             link.addEventListener("click", ev => {
               ev.preventDefault();
               loadMarkdown(resolved);
             });
 
-            // Verificar si existe tutorial.md en la misma carpeta
-            const dirPath = resolved.substring(0, resolved.lastIndexOf("/") + 1);
-            const tutorialPath = dirPath + "tutorial.md";
+            // Identificar posible enlace de compra justo después
+            const next = link.nextElementSibling;
+            const isBuyLink = (el) =>
+              el && el.tagName === "A" && el.textContent.includes("🛒");
 
-            fetch(tutorialPath, { method: "HEAD" }).then(res => {
-              if (!res.ok) {
-                link.innerText += " 🧩";
-              }
-            }).catch(() => {
-              link.innerText += " 🧩";
-            });
+            if (filename === "readme.md") {
+              const tutorialPath = dirPath + "tutorial.md";
+              fetch(tutorialPath, { method: "HEAD" }).then(res => {
+                if (!res.ok) {
+                  link.title = "Falta tutorial.md";
+                  if (!isBuyLink(next)) {
+                    link.innerText += " 🧩";
+                  } else {
+                    next.setAttribute("target", "_blank");
+                  }
+                } else if (isBuyLink(next)) {
+                  next.style.display = "none";
+                }
+              }).catch(() => {
+                link.title = "Falta tutorial.md";
+                if (!isBuyLink(next)) {
+                  link.innerText += " 🧩";
+                } else {
+                  next.setAttribute("target", "_blank");
+                }
+              });
+            } else {
+              fetch(resolved, { method: "HEAD" }).then(res => {
+                if (!res.ok) {
+                  link.removeAttribute("href");
+                  link.style.pointerEvents = "none";
+                  link.style.color = "#999";
+                  link.title = "Archivo no encontrado";
+                  if (!isBuyLink(next)) {
+                    link.innerText += " 🧩";
+                  } else {
+                    next.setAttribute("target", "_blank");
+                  }
+                } else if (isBuyLink(next)) {
+                  next.style.display = "none";
+                }
+              }).catch(() => {
+                link.removeAttribute("href");
+                link.style.pointerEvents = "none";
+                link.style.color = "#999";
+                link.title = "Archivo no encontrado";
+                if (!isBuyLink(next)) {
+                  link.innerText += " 🧩";
+                } else {
+                  next.setAttribute("target", "_blank");
+                }
+              })
+            }
           } else if (href.includes("audiobook")) {
             const resolved = resolvePath(basePath, href);
             const cleanResolved = resolved.endsWith("/") ? resolved + "index.html"
@@ -91,7 +141,6 @@
             link.setAttribute("href", cleanResolved);
             link.setAttribute("target", "_blank");
           }
-
         });
 
         window.scrollTo(0, 0);
