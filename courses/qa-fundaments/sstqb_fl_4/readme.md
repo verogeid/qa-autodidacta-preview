@@ -56,7 +56,7 @@ Incluye **cinco exámenes tipo test** diseñados para validar tu preparación re
 
 Este curso ofrece un método alternativo de aprendizaje en formato audiolibro, útil para reforzar los conceptos clave sin necesidad de código.
 
-Puedes abrir el archivo principal [index.html](./audiobook/index.html) en tu navegador para comenzar a escuchar.
+Puedes abrir el archivo principal [index.html](https://verogeid.github.io/qa-autodidacta-preview/courses/qa-fundaments/sstqb_fl_4/audiobook/index.html) en tu navegador para comenzar a escuchar.
 
 ### Cómo usarlo
 
