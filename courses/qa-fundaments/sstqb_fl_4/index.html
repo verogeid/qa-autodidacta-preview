@@ -155,11 +155,20 @@
               }
             }
           } else if (href.includes("audiobook")) {
-            const resolved = resolvePath(basePath, href);
-            const cleanResolved = resolved.endsWith("/") ? resolved + "index.html"
-                                : resolved.endsWith(".html") ? resolved
-                                : resolved + "/index.html";
-            link.setAttribute("href", cleanResolved);
+            let resolved;
+            
+            if (location.hostname.endsWith("github.io")) {
+              // Estamos en GitHub Pages
+              resolved = resolvePath(basePath, href);
+              resolved = resolved.endsWith("/") ? resolved + "index.html"
+                        : resolved.endsWith(".html") ? resolved
+                        : resolved + "/index.html";
+            } else {
+              // Cualquier servidor local/virtual
+              resolved = "./audiobook/index.html";
+            }
+
+            link.setAttribute("href", resolved);
             link.setAttribute("target", "_blank");
           }
         });
