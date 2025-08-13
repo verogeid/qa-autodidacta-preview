@@ -1,184 +1,197 @@
 // parser.js
-const debugFlag = true;
+const debugFlag = false;
+
+let configData = {};
+
+export function setConfig(newConfig) {
+    if (debugFlag) console.log('[parser] ⚙️ Configuración del parser actualizada.');
+    configData = newConfig;
+}
+
+const voiceMap = {
+    '1': 'voice-1',
+    '2': 'voice-2',
+    '3': 'voice-3',
+    '4': 'voice-4',
+    '5': 'voice-5'
+};
+
+const defaultVoiceRoles = {
+    'es': 'voice-4',
+    'en': 'voice-5'
+};
+
+function stripMarkdown(text) {
+    return text.replace(/\*\*\*(.+?)\*\*\*/g, '$1')
+                .replace(/\*\*(.+?)\*\*/g, '$1')
+                .replace(/\*(.+?)\*/g, '$1');
+}
 
 export function parseMarkdown(text) {
-  if (!text) return [];
-
-  let defaultVoice = '4';
-  const phrases = [];
-  let speakableCounter = 0;
-
-  const blocks = splitIntoBlocks(text);
-
-  for (const block of blocks) {
-    if (block.trim() === '{es}') {
-      defaultVoice = '4';
-      continue;
-    }
-    if (block.trim() === '{en}') {
-      defaultVoice = '5';
-      continue;
+    if (!text) return [];
+    
+    if (Object.keys(configData).length === 0) {
+        console.error('[parser] ❌ Error: La configuración no se ha cargado. Llamar a setConfig() primero.');
+        return [];
     }
 
-    const { voice, content } = extractVoiceAndContent(block, defaultVoice);
-    const lines = content.split('\n');
+    let currentLang = 'es';
+    const htmlPhrases = [];
+    let phraseIndex = 0;
+    
+    let currentParagraphHtml = '';
+    
+    const lines = text.split('\n');
 
-    for (const line of lines) {
-      const trimmed = line.trim();
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        if (debugFlag) console.log(`\n[parser] --- Procesando línea ${i + 1}: "${line}" ---`);
 
-      // ✅ Detectar línea que sea solo una pausa
-      if (/^\[(short pause|pause|long pause)\]$/i.test(trimmed)) {
-        const pauseMap = {
-          'short pause': 200,
-          'pause': 400,
-          'long pause': 800,
-        };
+        const trimmedLine = line.trim();
+        const isBlankLine = trimmedLine === '';
+        const isSeparator = trimmedLine === '---';
 
-        const label = trimmed.toLowerCase().replace(/\[|\]/g, '');
-
-        phrases.push({
-          textDisplay: '<span class="phrase"></span>',
-          textSpeech: null,
-          voice,
-          lang: voice === '5' ? 'en' : 'es',
-          pauseMs: pauseMap[label] || 400,
-          silent: true,
-        });
-        continue;
-      }
-
-      if (!trimmed) {
-        phrases.push({
-          textDisplay: '\n',
-          textSpeech: null,
-          voice,
-          lang: voice === '5' ? 'en' : 'es',
-          pauseMs: 0,
-          silent: true,
-        });
-        continue;
-      }
-
-      const isList = isListItem(line);
-      const endsWithDoubleSpace = /\s\s$/.test(line);
-      const fragments = splitLineIntoFragments(line);
-
-      for (const { text, pauseMs, silent = false } of fragments) {
-        if (!text.trim() && !silent) continue;
-
-        const phrase = {
-          textDisplay: formatDisplay(text, isList),
-          textSpeech: silent ? null : text,
-          voice,
-          lang: voice === '5' ? 'en' : 'es',
-          pauseMs,
-          silent,
-        };
-
-        if (!silent && text) {
-          phrase.speakableIndex = speakableCounter++;
+        if (isBlankLine || isSeparator) {
+            if (currentParagraphHtml) {
+                htmlPhrases.push(`<p>${currentParagraphHtml}</p>`);
+                currentParagraphHtml = '';
+                if (debugFlag) console.log('[parser] [Detección de párrafo] Línea vacía o separador. Se cierra el párrafo anterior.');
+            }
+            if (isSeparator) {
+                htmlPhrases.push('<hr>');
+                if (debugFlag) console.log('[parser] [Detección de separador] Se añade un separador <hr>.');
+            }
+            continue;
         }
 
-        phrases.push(phrase);
-      }
+        const langPattern = /^\{(es|en)\}$/;
+        const langMatch = trimmedLine.match(langPattern);
+        if (langMatch) {
+            currentLang = langMatch[1];
+            if (debugFlag) console.log(`[parser] [Detección de idioma] Nuevo idioma por defecto: ${currentLang}`);
+            continue;
+        }
 
-      if (endsWithDoubleSpace) {
-        phrases.push({
-          textDisplay: '\n',
-          textSpeech: null,
-          voice,
-          lang: voice === '5' ? 'en' : 'es',
-          pauseMs: 0,
-          silent: true,
-        });
-      }
+        let contentToProcess = trimmedLine;
+        let role = null;
+        let specialTagHtml = '';
+        let isCharacterSpeech = false;
+        let dataSpeech = '';
+        
+        const voicePattern = /\{([1-5])(?:\(([^)]+)\))?:\s*(.+)\}/;
+        const voiceMatch = trimmedLine.match(voicePattern);
+
+        if (voiceMatch) {
+            const voiceNumber = voiceMatch[1];
+            const tag = voiceMatch[2];
+            let content = voiceMatch[3].trim();
+            
+            if (debugFlag) {
+                console.log(`[parser] [Paso 1: Voz Detectada] trimmedLine: "${trimmedLine}"`);
+                console.log(`[parser] [Paso 1: Voz Detectada] voiceMatch: ${JSON.stringify(voiceMatch)}`);
+                console.log(`[parser] [Paso 1: Voz Detectada] Contenido crudo extraído (voiceMatch[3]): "${content}"`);
+            }
+            
+            const verbalizationPattern = /^(.*?)\s*\{(.+?)\}$/;
+            const verbalizationMatch = content.match(verbalizationPattern);
+
+            if (verbalizationMatch) {
+                contentToProcess = verbalizationMatch[1].trim();
+                const textToSpeak = verbalizationMatch[2].trim();
+                dataSpeech = ` data-speech="${textToSpeak}"`;
+                if (debugFlag) console.log(`[parser] [Paso 2: Verbalización] Detectada. Mostrar: "${contentToProcess}", Leer: "${textToSpeak}"`);
+            } else {
+                contentToProcess = content;
+                if (debugFlag) console.log(`[parser] [Paso 2: Verbalización] No detectada. Usando: "${contentToProcess}"`);
+            }
+            
+            role = voiceMap[voiceNumber];
+            specialTagHtml = tag ? `${tag}: ` : '';
+            isCharacterSpeech = true;
+        } else {
+            contentToProcess = trimmedLine;
+            if (debugFlag) console.log('[parser] [Paso 1: Sin Voz] No se detectó un rol de voz.');
+        }
+
+        if (currentParagraphHtml) {
+            currentParagraphHtml += '<br>';
+        }
+
+        const fragments = splitLineIntoFragments(contentToProcess);
+        if (debugFlag) console.log(`[parser] [Paso 3: Fragmentación] Se ha dividido la línea en ${fragments.length} fragmentos.`);
+        if (debugFlag) console.log(`[parser] [Paso 3: Fragmentación] Contenido de los fragmentos: ${JSON.stringify(fragments)}`);
+
+        for (const fragment of fragments) {
+            if (fragment.silent) {
+                currentParagraphHtml += `<span class="phrase" data-index="${phraseIndex}" data-pause-ms="${fragment.pauseMs}"></span>`;
+                if (debugFlag) console.log(`[parser] [Paso 4: Generando HTML] Fragmento silencioso (${fragment.pauseMs}ms) para el index ${phraseIndex}.`);
+            } else {
+                const fragmentRole = role || defaultVoiceRoles[currentLang];
+                let fragmentTextToShow = fragment.text;
+                
+                let dataPitch = '';
+                const unformattedText = stripMarkdown(fragmentTextToShow).trim();
+
+                if (unformattedText.startsWith('¡') && unformattedText.endsWith('!')) {
+                    dataPitch = ` data-pitch="${configData.pitchEntonacion.exclamacion}"`;
+                } else if (unformattedText.startsWith('¿') && unformattedText.endsWith('?')) {
+                    dataPitch = ` data-pitch="${configData.pitchEntonacion.pregunta}"`;
+                }
+
+                let textWithFormat = formatDisplay(fragmentTextToShow);
+                
+                if (isCharacterSpeech) {
+                    textWithFormat = `<i>${textWithFormat}</i>`;
+                }
+                
+                const finalDataSpeech = (dataSpeech && fragment === fragments[0]) ? dataSpeech : '';
+                
+                const finalHtml = `${specialTagHtml}<span class="phrase" data-index="${phraseIndex}" data-role="${fragmentRole}" data-lang="${currentLang}"${dataPitch}${finalDataSpeech}>${textWithFormat}</span>`;
+                currentParagraphHtml += finalHtml;
+                if (debugFlag) console.log(`[parser] [Paso 4: Generando HTML] HTML final para el index ${phraseIndex}: "${finalHtml}"`);
+                specialTagHtml = '';
+            }
+            phraseIndex++;
+        }
     }
-  }
 
-  return phrases;
-}
-
-
-
-function splitIntoBlocks(text) {
-  return text.split(/(?=\{(?:\d)(?:\([^)]*\))?:)/g);
-}
-
-function extractVoiceAndContent(block, defaultVoice) {
-  const voiceMatch = block.match(/^\{(\d)(?:\([^)]*\))?:/);
-  if (voiceMatch) {
-    const voice = voiceMatch[1];
-    const content = block.replace(/^\{\d(?:\([^)]*\))?:/, '').replace(/\}$/, '');
-    return { voice, content };
-  }
-  return { voice: defaultVoice, content: block };
+    if (currentParagraphHtml) {
+        htmlPhrases.push(`<p>${currentParagraphHtml}</p>`);
+        if (debugFlag) console.log('[parser] [Final del documento] Se cierra el último párrafo.');
+    }
+    
+    return htmlPhrases;
 }
 
 function splitLineIntoFragments(line) {
-  const pauseRegex = /\[(short pause|pause|long pause)\]/gi;
-  const pauseMap = {
-    'short pause': 200,
-    'pause': 400,
-    'long pause': 800,
-  };
+    const pauseRegex = /\[(short pause|pause|long pause)\]/gi;
 
-  const fragments = [];
-  let lastIndex = 0;
-  let match;
+    const fragments = [];
+    let lastIndex = 0;
+    let match;
 
-  while ((match = pauseRegex.exec(line)) !== null) {
-    const text = line.slice(lastIndex, match.index);
-    if (text.trim()) {
-      fragments.push({ text: text.trim(), pauseMs: 400 });
+    while ((match = pauseRegex.exec(line)) !== null) {
+        const text = line.slice(lastIndex, match.index);
+        if (text.trim()) {
+            fragments.push({ text: text.trim() });
+        }
+        const pauseLabel = match[1].toLowerCase();
+
+        fragments.push({ text: '', pauseMs: configData.pauseMap[pauseLabel] || 400, silent: true });
+        lastIndex = pauseRegex.lastIndex;
     }
 
-    const pauseLabel = match[1].toLowerCase();
-    fragments.push({ text: '', pauseMs: pauseMap[pauseLabel] || 400, silent: true });
+    const remaining = line.slice(lastIndex);
+    if (remaining.trim()) {
+        fragments.push({ text: remaining.trim() });
+    }
 
-    lastIndex = pauseRegex.lastIndex;
-  }
-
-  const remaining = line.slice(lastIndex);
-  if (remaining.trim()) {
-    fragments.push({ text: remaining.trim(), pauseMs: 400 });
-  }
-
-  return fragments;
+    return fragments;
 }
 
 function formatDisplay(text) {
-  if (text === '<br>') return '<br>';
-
-  const tempDiv = document.createElement('div');
-  tempDiv.textContent = text;
-  let escaped = tempDiv.innerHTML;
-
-  // Formato combinado
-  escaped = escaped
-    .replace(/\*\*\*(.+?)\*\*\*/g, '<b><i>$1</i></b>')
-    .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')
-    .replace(/\*(.+?)\*/g, '<i>$1</i>')
-    .replace(/__(.+?)__/g, '<u>$1</u>');
-
-  // Detectar listas enumeradas
-  const listMatch = escaped.match(/^(([a-zA-Z]|\d+)[\.\)]\s+)(.+)$/);
-  if (listMatch) {
-    const marker = listMatch[1];
-    const content = listMatch[3];
-    return `<span class="phrase" data-type="list-item-enum">${marker}${content}</span>`;
-  }
-
-  // Detectar listas con guion o asterisco
-  const bulletMatch = escaped.match(/^([-*]\s+)(.+)$/);
-  if (bulletMatch) {
-    const marker = bulletMatch[1];
-    const content = bulletMatch[2];
-    return `<span class="phrase" data-type="list-item-bullet">${marker}${content}</span>`;
-  }
-
-  return `<span class="phrase" data-type="text">${escaped}</span>`;
-}
-
-function isListItem(line) {
-  return /^(\s*[-*] |\s*\d+\.\s)/.test(line);
+    let escaped = text.replace(/\*\*\*(.+?)\*\*\*/g, '<b><i>$1</i></b>')
+        .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')
+        .replace(/\*(.+?)\*/g, '<i>$1</i>');
+    return escaped;
 }
