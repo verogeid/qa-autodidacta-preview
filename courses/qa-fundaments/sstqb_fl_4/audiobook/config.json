@@ -1,0 +1,35 @@
+{
+    "lang": ["es"],
+    "modalHeader": "Configuración de Voz",
+    "voices": [
+        {
+            "id": "voice-1",
+            "name": "Personaje 1 (code)"
+        },
+        {
+            "id": "voice-2",
+            "name": "Personaje 2"
+        },
+        {
+            "id": "voice-3",
+            "name": "Personaje 3"
+        },
+        {
+            "id": "voice-4",
+            "name": "Narrador (default)"
+        },
+        {
+            "id": "voice-5",
+            "name": "Narrador (advices)"
+        }
+    ],
+    "pitchEntonacion": {
+        "exclamacion": 1.5,
+        "pregunta": 1.7
+    },
+    "pauseMap": {
+        "short pause": 200,
+        "pause": 400,
+        "long pause": 800
+    }
+}

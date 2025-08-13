@@ -76,7 +76,7 @@ Puedes abrir el archivo principal [index.html](./audiobook/index.html) en tu nav
 
 Este curso está registrado en Safe Creative y licenciado bajo:
 
-[**🛡️ Safe Creative: Registro de Derechos**](https://www.safecreative.org)  
+[**🛡️ Safe Creative: Registro de Derechos**](https://www.safecreative.org/work/2508122763967-sstqb-fl-4-0-audiobook-tts-v1-1)  
 [**🪪 Creative Commons BY-NC-ND 4.0 Internacional**](http://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 [![Licencia CC BY-NC-ND 4.0](https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-nd/4.0/)
