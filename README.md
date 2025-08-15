@@ -61,7 +61,7 @@ Este repositorio recopila cursos autodidactas, **pedagógicos y diseñados para 
 
 ### 🪪 FrontEnd
 
-- 🚧 [HTML5 y CSS3](./courses/dev-and-ia/html5/readme.md) 📖
+- 🚧 [HTML5 y CSS3](https://verogeid.github.io/qa-autodidacta-preview/courses/dev-and-ia/html5/index.html) 📖
 
 <a id="dev-backend">
 

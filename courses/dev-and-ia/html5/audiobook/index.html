@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Audiolibro</title>
+  <link rel="stylesheet" href="speech.css" />
+</head>
+<body>
+  <header>
+    <h1>SSTQB 4.0 (Audiobook)</h1>
+    <div class="controls">
+      <div class="control-group">
+        <label for="selector">Tema:</label>
+        <select id="selector"></select>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div id="text"></div>
+    <input type="file" id="speechsFileInput" accept=".md" style="display: none;" />
+  </main>
+  <footer></footer> <!-- Aquí se cargarán los botones dinámicos -->
+
+  <script type="module">
+    const ts = Date.now();
+
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = `speech.js`;
+    document.body.appendChild(script);
+
+    // Si estamos en file://, simula cargar speechs.md automáticamente
+    if (location.protocol === 'file:') {
+      const input = document.getElementById('speechsFileInput');
+      const fakeEvent = new Event('change');
+
+      // Autocargar speechs.md (debe estar junto a index.html)
+      fetch('speechs.md')
+        .then(r => r.text())
+        .then(content => {
+          const blob = new Blob([content], { type: 'text/markdown' });
+          const file = new File([blob], 'speechs.md', { type: 'text/markdown' });
+
+          const dataTransfer = new DataTransfer();
+          dataTransfer.items.add(file);
+          input.files = dataTransfer.files;
+
+          input.dispatchEvent(fakeEvent);
+        });
+    }
+  </script>
+
+  <!-- ⭐ Se han añadido los atributos role y aria-labelledby para accesibilidad -->
+  <div id="voice-config-menu" class="modal-menu" role="dialog" aria-labelledby="voice-config-title" aria-modal="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- ⭐ Se ha añadido un id para que sea referenciado por aria-labelledby -->
+        <h3 id="voice-config-title">Voices configuration</h3>
+      </div>
+      <div id="voice-options-container"></div>
+      <div class="modal-footer">
+        <button id="save-config-btn" aria-label="Guardar configuración">💾</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
